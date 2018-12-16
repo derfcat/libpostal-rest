@@ -1,13 +1,19 @@
-# Libpostal REST
+This repo combines both johnlonganecker/libpostal-rest source and ClickSend/libpostal-rest-docker source.
+
+# Usage
+
+## Running image
+
+Run this command: `docker run -d -p 8080:8080 clicksend/libpostal-rest`
 
 ## API Example
 
 Replace <host> with your host
 
-### Parser
+## Parser
 `curl -X POST -d '{"query": "100 main st buffalo ny"}' <host>:8080/parser`
 
-** Response **
+**Response**
 ```
 [
   {
@@ -29,10 +35,10 @@ Replace <host> with your host
 ]
 ```
 
-### Expand
+## Expand
 `curl -X POST -d '{"query": "100 main st buffalo ny"}' <host>:8080/expand`
 
-** Response **
+**Response**
 ```
 [
   "100 main saint buffalo new york",
@@ -41,3 +47,16 @@ Replace <host> with your host
   "100 main street buffalo ny"
 ]
 ```
+
+## Health Check
+`curl -X GET <host>:8080/health`
+
+**Response**
+```
+OK
+```
+
+# Credits
+- For more info on REST API: [See johnlonganecker/libpostal-rest](https://github.com/johnlonganecker/libpostal-rest)
+- For more info on libpostal: [See openvenues/libpostal](https://github.com/openvenues/libpostal)
+- For more info on the original Docker repository: [See ClickSend/libpostal-rest-docker](https://github.com/ClickSend/libpostal-rest-docker)
